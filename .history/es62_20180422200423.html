@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let set1 = new Set(['red', 'green', 'blue']);
+        //   let arr = [...set1];
+        let set = new Set(['red', 'green', 'blue']);
+        let arr = [...set];
+        arr.forEach((value) => console.log(value))
+
+        let set11 = new Set([1, 2, 3])
+        set12 = new Set([...set11].map(val => val * 2))
+        // set = new Set([...set].map(val => val * 2))
+        set12.forEach((value) => console.log(value))
+
+        const s = new Set();
+        [2.3.5.4.]
+
+//         set = new Set([1, 4, 9]);
+//         set.forEach((value, key) => console.log(key + ' : ' + value))
+
+//         let a = new Set([1, 2, 3]);
+//         let b = new Set([4, 3, 2]);
+
+//         // 并集
+//         let union = new Set([...a, ...b]);
+//         // Set {1, 2, 3, 4}
+
+//         // 交集
+//         let intersect = new Set([...a].filter(x => b.has(x)));
+//         // set {2, 3}
+//         intersect.forEach((value, key) => console.log(key + "+++++++++++++++" + value))
+
+//         // 差集
+//         let difference = new Set([...a].filter(x => !b.has(x)));
+
+//         difference.forEach((value, key) => { console.log(key + "-------------" + value) })
+// // Set {1}
+    </script>
+</body>
+
+</html>

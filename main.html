@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浑河堡教会</title>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #FFCC99;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            background: #DADADA;
+            width: 100%;
+            margin: 0;
+            left: 0;
+            right: 0;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        .title {
+            text-align: center;
+            margin: 0;
+            margin-top: 13px;
+        }
+
+        /*  ----tilte--------  */
+
+        .fl {
+            position: absolute;
+            top: 25%;
+            margin-left: 6px;
+        }
+
+        a:link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        /*  //未访问：蓝色、无下划线 */
+
+        a:active {
+            color: red;
+        }
+
+        /*  //激活：红色  */
+
+        a:visited {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /*  //已访问：紫色、无下划线    */
+
+        pre {
+            text-align: center;
+            font-size: 16px;
+            color: #666666;
+            background-color: #F9F0DA;
+            font-size: 20px;
+            margin: 0px;
+            height: 100%;
+            width: 100%;
+
+        }
+
+        .header h3 {
+            color: #FFF;
+            margin: 10px
+        }
+
+        a {
+            color: #eeeeee;
+        }
+
+        #image {
+            width: 80%;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- title部分和返回上级页面 -->
+    <div class="header">
+        <a class="fl glyphicon glyphicon-chevron-left" href="../index.html" style="margin-top: 6px"></a>
+        <h3 class="title" id="Htitle"></h3>
+        <!--<a href="window.location.href="index.html" //hymn/main.html">  -->
+    </div>
+    <!-- 用pre让TXT文本自动换行如果用div不自动换行 -->
+    <div style="height: 40px;"></div>
+    <!-- TXT文字 -->
+    <pre class="body" id="bgc"></pre>
+    <br>
+    <!-- 歌谱图片部分 -->
+    <div style="text-align: center;">
+        <img id="image" alt="">
+    </div>
+    <br>
+
+
+    <!-- MP3部分 -->
+
+    <!-- <div class="footer">
+        <audio id="adMusic" src="mp3/宝贵十架.mp3" controls="controls"></audio>
+    </div> -->
+
+    <!-- boby部分如背景颜色 -->
+    <div id="txt"></div>
+
+
+    <!--<img id="song" src="/song/171.爱的诗歌.png" onClick="aa(1)" alt="" > -->
+    <!-- <div id="png"> </div> -->
+
+    <!-- 找到图片ID 加到Src里面-->
+    <script>
+
+        $(function () {
+            var url = location.search; //获取url中"?"符后的字串
+
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+
+
+                // 解决手机分享乱码问题
+
+                if (url.indexOf("&from") > 0) {
+                    url = url.substr(0, url.indexOf("&from"))
+
+                }
+                // END
+
+
+
+                // 截取字符串位置
+                var str = url.substr(url.indexOf("=") + 1, url.length);
+                var i1 = str.indexOf("&");
+                var i2 = str.indexOf("=");
+                //  打印字符串
+                console.log(i1);
+                console.log(i2);
+                // 找到ID 和 Name
+                var id = str.substr(0, i1);
+                var name = str.substr(1 + i2);
+                // 打印 ID 和 Name 
+                console.log(id);
+                console.log(name);
+                // 破解歌词名的乱码
+                var title = decodeURI(name);
+
+                console.log(title);
+                $("#Htitle").text(title);
+                //body部分显示歌词
+                var file = "../Lyrics/" + title + ".txt";
+                $(".body").load(file, function (responseTxt, statusTxt, xhr) {
+                    if (statusTxt == "success") {
+                        document.title = title + " \n\r" + responseTxt;
+                    }
+                    if (statusTxt == "error")
+                        alert("Error: " + xhr.status + ": " + xhr.statusText);
+                    // $("#pgc").attr("style","height:200%")
+                });
+
+
+                //创建png 对象
+                document.getElementById("image").src = "../song/" + title + ".png";
+
+                $(".header").click(function () {
+                    window.location.href = "../index.html";
+                })
+            };
+        });
+
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d601436e4a0fb7f20e1ae13bf7fad427"
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</body>
+
+</html>

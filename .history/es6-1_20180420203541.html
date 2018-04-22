@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const name = 'lux'
+        console.log(`hello ${name}`) //hello lux
+
+        const objA = { name: 'cc', age: 18 }
+        const objB = { address: 'beijing' }
+        const objC = {} // 这个为目标对象
+        const obj = Object.assign(objC, objA, objB)
+
+        // 我们将 objA objB objC obj 分别输出看看
+        console.log(objA)   // { name: 'cc', age: 18 }
+        console.log(objB) // { address: 'beijing' }
+        console.log(objC) // { name: 'cc', age: 18, address: 'beijing' }
+        console.log(obj) // { name: 'cc', age: 18, address: 'beijing' }
+         
+         //对象
+            const people = {
+                name: 'lux',
+                age: 20
+            }
+            const { name, age } = people
+            console.log(`${name} --- ${age}`)
+            //数组
+            const color = ['red', 'blue']
+            const [first, second] = color
+            console.log(first) //'red'
+            console.log(second) //'blue'
+
+            作者：陈嘻嘻啊
+            链接：https://www.jianshu.com/p/287e0bb867ae
+            來源：简书
+            著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+    </script>
+</body>
+
+</html>

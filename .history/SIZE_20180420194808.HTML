@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const s = new Set();
+
+        [2, 3, 5, 4, 5, 2, 2].forEach(x => s.add(x));
+
+        for (let i of s) {
+            console.log(i);
+        }
+
+        const set = new Set([1, 2, 3, 4, 4]);
+        [...set]
+
+        for (let j of set) {
+            console.log(j)
+        }
+
+        const items = new Set([1, 2, 3, 4, 5]);
+        const array = Array.from(items);
+        for (let i of items) {
+            console.log("set转化为数组" + i)
+        }
+
+        function dedupe(array) {
+            console.log() Array.from(new Set(array));
+        }
+
+
+        dedupe([1, 1, 2, 3]) // [1, 2, 3]
+    </script>
+</body>
+
+</html>

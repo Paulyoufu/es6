@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        let [a, b, c] = [1, 2, 3]
+        console.log("[a,b,c]"+a)
+        console.log("[a,b,c]"+b)
+        console.log("[a,b,c]"+c)
+
+
+        let [foo, [[bar], baz]] = [1, [[2], 3]];
+        foo // 1
+        bar // 2
+        baz // 3
+       console.log("[foo,[[bar],baz]]"+foo)
+       console.log("[foo,[[bar],baz]]"+bar)
+       console.log("[foo,[[bar],baz]]"+baz)
+
+        let [, , third] = ["foo", "bar", "baz"];
+        third // "baz"
+        console.log(" [, , third]"+foo)
+        let [x1, , y1] = [1, 2, 3];
+        
+
+        let [head, ...tail] = [1, 2, 3, 4];
+        head // 1
+        tail // [2, 3, 4]
+ 
+        let [x, y, ...z] = ['a'];
+        x // "a"
+        y // undefined
+        z // []
+    </script>
+</body>
+
+</html>
